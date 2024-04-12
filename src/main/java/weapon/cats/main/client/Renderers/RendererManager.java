@@ -1,20 +1,14 @@
 package weapon.cats.main.client.Renderers;
 
-import java.util.Set;
-
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
-import net.fabricmc.fabric.mixin.client.rendering.EntityModelLayersAccessor;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.model.CatEntityModel;
-import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.client.render.entity.model.EntityModelLayers;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.CatEntity;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import weapon.cats.main.Entities.EntityManager;
-import weapon.cats.main.mixin.client.EntityModelLayerAccessor;
 
 @Environment(EnvType.CLIENT)
 public class RendererManager {
@@ -28,7 +22,12 @@ public class RendererManager {
 					return new LaserCursorRenderer(context);
 				}
 			);
-		
+		EntityRendererRegistry.register(
+				EntityManager.BULLET,
+				context->{
+					return new BulletRenderer(context);
+				}
+			);
 		LivingEntityFeatureRendererRegistrationCallback.EVENT.register((livingEntityType, livingEntityRenderer, registrationHelper, context)->
 		{
 			if(livingEntityType.equals(EntityType.CAT)) {

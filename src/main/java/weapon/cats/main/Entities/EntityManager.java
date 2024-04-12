@@ -17,4 +17,10 @@ public class EntityManager {
 			FabricEntityTypeBuilder.create(SpawnGroup.MISC, LaserCursor::new).dimensions(EntityDimensions.fixed(0.125f, 0.125f)).build()
 		);
 	
+	public static EntityType<Bullet> BULLET = Registry.register(
+			Registries.ENTITY_TYPE, 
+			new Identifier(WeaponizedCats.MOD_ID,"bullet"),
+			FabricEntityTypeBuilder.create(SpawnGroup.MISC, Bullet::new).dimensions(EntityDimensions.fixed(0.0625f, 0.0625f)).build()
+		);
+	
 }

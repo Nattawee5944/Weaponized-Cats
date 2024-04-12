@@ -14,6 +14,7 @@ import net.minecraft.client.model.TexturedModelData;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.EntityModels;
 import weapon.cats.main.client.Models.AttacherModel;
+import weapon.cats.main.client.Models.GunAttachmentModel;
 import weapon.cats.main.client.Renderers.AttachmentsFeatureRenderer;
 
 @Environment(EnvType.CLIENT)
@@ -24,6 +25,7 @@ public class EntityModelsMixin {
 	private static void inject(CallbackInfoReturnable<ImmutableMap<EntityModelLayer, TexturedModelData>> cir, ImmutableMap.Builder<EntityModelLayer, TexturedModelData> builder) {
 		
 		builder.put(AttachmentsFeatureRenderer.attacher_layer, AttacherModel.getTexturedModelData());
+		builder.put(AttachmentsFeatureRenderer.gun_attachment_layer, GunAttachmentModel.getTexturedModelData());
 		//TODO: make models
 		//builder.put(AttachmentsFeatureRenderer.attachment_layer, AttachmentModel.getTexturedModelData());
 		

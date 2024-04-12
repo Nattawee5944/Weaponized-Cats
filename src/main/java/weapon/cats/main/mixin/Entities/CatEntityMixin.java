@@ -16,6 +16,7 @@ import weapon.cats.main.Entities.LaserCursor;
 import weapon.cats.main.Entities.ai.FollowEntityGoal;
 import weapon.cats.main.Entities.ai.LookAtLaserGoal;
 import weapon.cats.main.Items.ItemManager;
+import weapon.cats.main.Items.Attachments.Attachment;
 
 @Mixin(CatEntity.class)
 public class CatEntityMixin{
@@ -24,7 +25,7 @@ public class CatEntityMixin{
 	public void LookAtLaser(CallbackInfo ci) {
 		
 		((MobAccessorMixin)((CatEntity)(Object)this)).getGoalSelector().add(11, new LookAtLaserGoal((CatEntity)(Object)this, LaserCursor.class, 20.0f));
-		((MobAccessorMixin)((CatEntity)(Object)this)).getGoalSelector().add(2, new FollowEntityGoal((CatEntity)(Object)this, 1.0, 0.5f, 15.0f, LaserCursor.class));
+		((MobAccessorMixin)((CatEntity)(Object)this)).getGoalSelector().add(2, new FollowEntityGoal((CatEntity)(Object)this, 1.0, 0.5f, 5.0f, LaserCursor.class));
 		
 	}
 	
@@ -40,25 +41,45 @@ public class CatEntityMixin{
 			return;
 		}
 		
-        if(cat.isOwner(player) && itemStack.isOf(ItemManager.ATTACHER)){
+        if(cat.isOwner(player)){
+        	if(itemStack.isOf(ItemManager.ATTACHER)) {
+	        	if(cat.getEquippedStack(EquipmentSlot.CHEST).isEmpty()) {
+	        		
+	        		cat.equipStack(EquipmentSlot.CHEST, itemStack.copy());
+	        		if (!player.getAbilities().creativeMode) {
+	                    itemStack.decrement(1);
+	                }
+	        		ci.setReturnValue(ActionResult.SUCCESS);
+	        	}
+        	}
+        	if(itemStack.isOf(ItemManager.DETACHER)){
         	
-        	if(cat.getEquippedStack(EquipmentSlot.CHEST).isEmpty()) {
+	        	if(cat.getEquippedStack(EquipmentSlot.CHEST).isOf(ItemManager.ATTACHER)) {
+	        		
+        			cat.dropStack(Attachment.getAttachment(cat.getEquippedStack(EquipmentSlot.CHEST)).copyAndEmpty());
+        			Attachment.clearAttachment(cat.getEquippedStack(EquipmentSlot.CHEST));
+	        		cat.dropStack(cat.getEquippedStack(EquipmentSlot.CHEST).copyAndEmpty());
+	        		ci.setReturnValue(ActionResult.SUCCESS);
+	        	}
+        	}
+        	if(itemStack.getItem() instanceof Attachment) {
         		
-        		cat.equipStack(EquipmentSlot.CHEST, itemStack.copy());
-        		if (!player.getAbilities().creativeMode) {
-                    itemStack.decrement(1);
-                }
-        		ci.setReturnValue(ActionResult.SUCCESS);
+        		if(cat.getEquippedStack(EquipmentSlot.CHEST).isOf(ItemManager.ATTACHER)){
+        			
+        			cat.dropStack(Attachment.getAttachment(cat.getEquippedStack(EquipmentSlot.CHEST)).copyAndEmpty());
+        			Attachment.clearAttachment(cat.getEquippedStack(EquipmentSlot.CHEST));
+        			Attachment.addAttachment(cat.getEquippedStack(EquipmentSlot.CHEST), itemStack.copyWithCount(1));
+        			if (!player.getAbilities().creativeMode) {
+	                    itemStack.decrement(1);
+	                }
+        			
+        		}else {
+        			
+        			ci.setReturnValue(ActionResult.FAIL);
+        			
+        		}
+        		
         	}
-        	
-        }
-        if(cat.isOwner(player) && itemStack.isOf(ItemManager.DETACHER)){
-        	
-        	if(cat.getEquippedStack(EquipmentSlot.CHEST).isOf(ItemManager.ATTACHER)) {
-        		cat.dropStack(cat.getEquippedStack(EquipmentSlot.CHEST).copyAndEmpty());
-        		ci.setReturnValue(ActionResult.SUCCESS);
-        	}
-        	
         }
 	}
 	
