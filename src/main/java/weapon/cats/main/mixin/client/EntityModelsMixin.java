@@ -8,16 +8,19 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import com.google.common.collect.ImmutableMap;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.model.TexturedModelData;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.EntityModels;
 import weapon.cats.main.client.Models.AttacherModel;
 import weapon.cats.main.client.Renderers.AttachmentsFeatureRenderer;
 
+@Environment(EnvType.CLIENT)
 @Mixin(EntityModels.class)
 public class EntityModelsMixin {
 	
-	@Inject(method = "getModels()Ljava/util/Map", at = @At(value = "TAIL"),locals= LocalCapture.CAPTURE_FAILHARD, cancellable = true)
+	@Inject(method = "getModels", at = @At(value = "TAIL"),locals= LocalCapture.CAPTURE_FAILHARD, cancellable = true)
 	private static void inject(CallbackInfoReturnable<ImmutableMap<EntityModelLayer, TexturedModelData>> cir, ImmutableMap.Builder<EntityModelLayer, TexturedModelData> builder) {
 		
 		builder.put(AttachmentsFeatureRenderer.attacher_layer, AttacherModel.getTexturedModelData());
