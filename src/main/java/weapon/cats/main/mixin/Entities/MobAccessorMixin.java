@@ -10,4 +10,7 @@ import net.minecraft.entity.mob.MobEntity;
 public interface MobAccessorMixin {
 	@Accessor
 	GoalSelector getGoalSelector();
+
+	@Accessor
+	GoalSelector getTargetSelector();
 }

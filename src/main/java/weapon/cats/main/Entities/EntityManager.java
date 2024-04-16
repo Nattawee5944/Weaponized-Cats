@@ -22,5 +22,10 @@ public class EntityManager {
 			new Identifier(WeaponizedCats.MOD_ID,"bullet"),
 			FabricEntityTypeBuilder.create(SpawnGroup.MISC, Bullet::new).dimensions(EntityDimensions.fixed(0.0625f, 0.0625f)).build()
 		);
+	public static EntityType<ThrownSlimeBall> THROWN_SLIMEBALL = Registry.register(
+			Registries.ENTITY_TYPE,
+			new Identifier(WeaponizedCats.MOD_ID,"thrown_slimeball"),
+			FabricEntityTypeBuilder.create(SpawnGroup.MISC, ThrownSlimeBall::new).dimensions(EntityDimensions.fixed(0.125f, 0.125f)).build()
+		);
 	
 }

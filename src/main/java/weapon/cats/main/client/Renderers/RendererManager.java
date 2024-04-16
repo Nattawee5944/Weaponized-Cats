@@ -3,6 +3,7 @@ package weapon.cats.main.client.Renderers;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
+import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.model.CatEntityModel;
 import net.minecraft.entity.EntityType;
@@ -28,6 +29,11 @@ public class RendererManager {
 					return new BulletRenderer(context);
 				}
 			);
+		EntityRendererRegistry.register(
+				EntityManager.THROWN_SLIMEBALL,
+				FlyingItemEntityRenderer::new
+			);
+		
 		LivingEntityFeatureRendererRegistrationCallback.EVENT.register((livingEntityType, livingEntityRenderer, registrationHelper, context)->
 		{
 			if(livingEntityType.equals(EntityType.CAT)) {

@@ -1,6 +1,7 @@
 package weapon.cats.main;
 
 import net.fabricmc.api.ModInitializer;
+import weapon.cats.main.Entities.StatusEffects.EffectManager;
 import weapon.cats.main.Items.ItemManager;
 
 import org.slf4j.Logger;
@@ -17,7 +18,8 @@ public class WeaponizedCats implements ModInitializer {
 	public void onInitialize() {
 		
 		ItemManager.RegisterItems();
-		
+		SoundManager.InitializeSounds();
+		EffectManager.InitEffects();
 	}
 	
 }
