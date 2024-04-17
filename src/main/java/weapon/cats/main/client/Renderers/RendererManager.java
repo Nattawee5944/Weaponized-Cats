@@ -33,7 +33,12 @@ public class RendererManager {
 				EntityManager.THROWN_SLIMEBALL,
 				FlyingItemEntityRenderer::new
 			);
-		
+		EntityRendererRegistry.register(
+				EntityManager.DYNAMITE,
+				context->{
+					return new DynamiteRenderer(context);
+				}
+			);
 		LivingEntityFeatureRendererRegistrationCallback.EVENT.register((livingEntityType, livingEntityRenderer, registrationHelper, context)->
 		{
 			if(livingEntityType.equals(EntityType.CAT)) {

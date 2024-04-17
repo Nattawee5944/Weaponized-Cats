@@ -3,5 +3,10 @@
 		"sounds":[
 			"weaponized-cat:gunshot"
 		]
+	},
+	"bomb_plop":{
+		"sounds":[
+			"weaponized-cat:bomb_plop"
+		]
 	}
 }

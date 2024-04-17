@@ -15,6 +15,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import weapon.cats.main.Entities.LaserCursor;
+import weapon.cats.main.Entities.ai.BombAttachmentAttackGoal;
 import weapon.cats.main.Entities.ai.FollowEntityGoal;
 import weapon.cats.main.Entities.ai.GunAttachmentAttackGoal;
 import weapon.cats.main.Entities.ai.LookAtLaserGoal;
@@ -32,6 +33,7 @@ public class CatEntityMixin{
 		((MobAccessorMixin)((CatEntity)(Object)this)).getGoalSelector().add(2, new FollowEntityGoal((CatEntity)(Object)this, 1.0, 0.5f, 5.0f, LaserCursor.class));
 		((MobAccessorMixin)((CatEntity)(Object)this)).getGoalSelector().add(5, new GunAttachmentAttackGoal((CatEntity)(Object)this, 1.0, 0, 200));
 		((MobAccessorMixin)((CatEntity)(Object)this)).getGoalSelector().add(5, new SlimeAttachmentAttackGoal((CatEntity)(Object)this, 1.0, 0, 20));
+		((MobAccessorMixin)((CatEntity)(Object)this)).getGoalSelector().add(5, new BombAttachmentAttackGoal((CatEntity)(Object)this, 1.0, 0, 30));
 		
 		((MobAccessorMixin)((CatEntity)(Object)this)).getTargetSelector().add(1, new TrackOwnerAttackerGoal(((CatEntity)(Object)this)));
 		((MobAccessorMixin)((CatEntity)(Object)this)).getTargetSelector().add(2, new AttackWithOwnerGoal(((CatEntity)(Object)this)));

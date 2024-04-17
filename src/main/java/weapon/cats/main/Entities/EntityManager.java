@@ -27,5 +27,10 @@ public class EntityManager {
 			new Identifier(WeaponizedCats.MOD_ID,"thrown_slimeball"),
 			FabricEntityTypeBuilder.create(SpawnGroup.MISC, ThrownSlimeBall::new).dimensions(EntityDimensions.fixed(0.125f, 0.125f)).build()
 		);
+	public static EntityType<Dynamite> DYNAMITE = Registry.register(
+			Registries.ENTITY_TYPE,
+			new Identifier(WeaponizedCats.MOD_ID,"dynamite"),
+			FabricEntityTypeBuilder.create(SpawnGroup.MISC, Dynamite::new).dimensions(EntityDimensions.fixed(0.25f,0.25f)).build()
+		);
 	
 }
