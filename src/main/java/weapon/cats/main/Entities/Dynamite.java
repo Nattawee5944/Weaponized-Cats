@@ -191,8 +191,10 @@ public class Dynamite extends ProjectileEntity{
             double aa;
             double w;
             Entity entity = list.get(v);
+            if(!(entity instanceof LivingEntity)) continue;
             if (entity.isImmuneToExplosion() || !((w = Math.sqrt(entity.squaredDistanceTo(vec3d)) / (double)q) <= 1.0) || (aa = Math.sqrt((x = entity.getX() - this.getX()) * x + (y = (entity instanceof TntEntity ? entity.getY() : entity.getEyeY()) - this.getY()) * y + (z = entity.getZ() - this.getZ()) * z)) == 0.0) continue;
             if((entity instanceof Tameable && ((Tameable)entity).getOwner()==this.getOwner()) || this.isOwner(entity))continue;
+            
             x /= aa;
             y /= aa;
             z /= aa;

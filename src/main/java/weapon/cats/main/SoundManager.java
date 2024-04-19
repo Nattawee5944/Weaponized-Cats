@@ -10,7 +10,7 @@ public class SoundManager {
 	public static SoundEvent Gunshot_Sound_Event = SoundEvent.of(GUNSHOT_SOUND_ID);
 	
 	public static final Identifier BOMB_PLOP_SOUND_ID = new Identifier(WeaponizedCats.MOD_ID,"bomb_plop");
-	public static SoundEvent Bomb_Plop_Sound_Event = SoundEvent.of(GUNSHOT_SOUND_ID);
+	public static SoundEvent Bomb_Plop_Sound_Event = SoundEvent.of(BOMB_PLOP_SOUND_ID);
 	
 	public static void InitializeSounds() {
 		

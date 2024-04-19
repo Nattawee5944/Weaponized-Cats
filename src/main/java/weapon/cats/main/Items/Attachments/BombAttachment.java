@@ -27,7 +27,7 @@ public class BombAttachment extends Attachment{
 		Vec3d direction = target.getEyePos().subtract(bomb.getPos());
 		
 		direction = calculateShot(direction,1.0);
-		System.out.println(direction.length());
+		//System.out.println(direction.length());
 		//direction = new Vec3d(direction.x, Math.sin(theta+Math.toRadians(5)),direction.z).multiply(1.5);
 		bomb.setVelocity(direction);
 		world.spawnEntity(bomb);
