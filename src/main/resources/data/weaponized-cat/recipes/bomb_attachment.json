@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BII",
+    "BRI",
+    " I "
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "B": {
+      "item": "minecraft:tnt"
+    }
+  },
+  "result": {
+    "item": "weaponized-cat:bomb_attachment",
+    "count": 1
+  }
+}
