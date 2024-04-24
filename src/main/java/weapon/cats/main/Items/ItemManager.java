@@ -10,6 +10,7 @@ import net.minecraft.util.Identifier;
 import weapon.cats.main.WeaponizedCats;
 import weapon.cats.main.Items.Attachments.BombAttachment;
 import weapon.cats.main.Items.Attachments.GunAttachment;
+import weapon.cats.main.Items.Attachments.LaserAttachment;
 import weapon.cats.main.Items.Attachments.SlimeAttachment;
 
 public class ItemManager {
@@ -20,6 +21,7 @@ public class ItemManager {
 	public static final GunAttachment GUN_ATTACHMENT = Registry.register(Registries.ITEM, new Identifier(WeaponizedCats.MOD_ID,"gun_attachment") ,new GunAttachment(new FabricItemSettings().maxCount(1)));
 	public static final SlimeAttachment SLIME_ATTACHMENT = Registry.register(Registries.ITEM, new Identifier(WeaponizedCats.MOD_ID,"slime_attachment") ,new SlimeAttachment(new FabricItemSettings().maxCount(1)));
 	public static final BombAttachment BOMB_ATTACHMENT = Registry.register(Registries.ITEM, new Identifier(WeaponizedCats.MOD_ID,"bomb_attachment"), new BombAttachment(new FabricItemSettings().maxCount(1)));
+	public static final LaserAttachment LASER_ATTACHMENT = Registry.register(Registries.ITEM, new Identifier(WeaponizedCats.MOD_ID,"laser_attachment"), new LaserAttachment(new FabricItemSettings().maxCount(1)));
 	
 	public static void RegisterItems() {
 		
@@ -31,6 +33,7 @@ public class ItemManager {
 			content.add(GUN_ATTACHMENT);
 			content.add(SLIME_ATTACHMENT);
 			content.add(BOMB_ATTACHMENT);
+			content.add(LASER_ATTACHMENT);
 			
 		});
 		

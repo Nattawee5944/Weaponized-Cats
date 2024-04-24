@@ -16,6 +16,7 @@ import net.minecraft.client.render.entity.model.EntityModels;
 import weapon.cats.main.client.Models.AttacherModel;
 import weapon.cats.main.client.Models.BombAttachmentModel;
 import weapon.cats.main.client.Models.GunAttachmentModel;
+import weapon.cats.main.client.Models.LaserAttachmentModel;
 import weapon.cats.main.client.Models.SlimeAttachmentModel;
 import weapon.cats.main.client.Renderers.AttachmentsFeatureRenderer;
 
@@ -30,6 +31,7 @@ public class EntityModelsMixin {
 		builder.put(AttachmentsFeatureRenderer.gun_attachment_layer, GunAttachmentModel.getTexturedModelData());
 		builder.put(AttachmentsFeatureRenderer.slime_attachment_layer, SlimeAttachmentModel.getTexturedModelData());
 		builder.put(AttachmentsFeatureRenderer.bomb_attachment_layer, BombAttachmentModel.getTexturedModelData());
+		builder.put(AttachmentsFeatureRenderer.laser_attachment_layer, LaserAttachmentModel.getTexturedModelData());
 		//TODO: make models
 		//builder.put(AttachmentsFeatureRenderer.attachment_layer, AttachmentModel.getTexturedModelData());
 		

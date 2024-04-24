@@ -33,4 +33,9 @@ public class EntityManager {
 			FabricEntityTypeBuilder.create(SpawnGroup.MISC, Dynamite::new).dimensions(EntityDimensions.fixed(0.25f,0.25f)).build()
 		);
 	
+	public static EntityType<LaserExplosion> LASER_EXPLOSION = Registry.register(
+			Registries.ENTITY_TYPE,
+			new Identifier(WeaponizedCats.MOD_ID,"laser_explosion"),
+			FabricEntityTypeBuilder.create(SpawnGroup.MISC, LaserExplosion::new).dimensions(EntityDimensions.changing(10f, 10f)).build()
+		);
 }

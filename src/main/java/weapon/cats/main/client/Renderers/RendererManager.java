@@ -39,6 +39,14 @@ public class RendererManager {
 					return new DynamiteRenderer(context);
 				}
 			);
+		
+		EntityRendererRegistry.register(
+				EntityManager.LASER_EXPLOSION,
+				context->{
+					return new LaserExplosionRenderer(context);
+				}
+			);
+		
 		LivingEntityFeatureRendererRegistrationCallback.EVENT.register((livingEntityType, livingEntityRenderer, registrationHelper, context)->
 		{
 			if(livingEntityType.equals(EntityType.CAT)) {

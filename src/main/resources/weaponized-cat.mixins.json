@@ -3,7 +3,6 @@
 	"package": "weapon.cats.main.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"ExampleMixin",
 		"Entities.CatEntityMixin",
 		"Entities.MobAccessorMixin"
 	],

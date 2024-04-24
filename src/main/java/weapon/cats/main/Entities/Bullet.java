@@ -127,7 +127,7 @@ public class Bullet extends ProjectileEntity {
     	entity.damage(damageSource, 0.0625f*lifeLeft);
         if(entity instanceof LivingEntity) {
         	
-        	((LivingEntity) entity).timeUntilRegen--;
+        	((LivingEntity) entity).timeUntilRegen-=4;
         	
         }
         

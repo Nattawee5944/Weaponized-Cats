@@ -18,10 +18,12 @@ import weapon.cats.main.Items.ItemManager;
 import weapon.cats.main.Items.Attachments.Attachment;
 import weapon.cats.main.Items.Attachments.BombAttachment;
 import weapon.cats.main.Items.Attachments.GunAttachment;
+import weapon.cats.main.Items.Attachments.LaserAttachment;
 import weapon.cats.main.Items.Attachments.SlimeAttachment;
 import weapon.cats.main.client.Models.AttacherModel;
 import weapon.cats.main.client.Models.BombAttachmentModel;
 import weapon.cats.main.client.Models.GunAttachmentModel;
+import weapon.cats.main.client.Models.LaserAttachmentModel;
 import weapon.cats.main.client.Models.SlimeAttachmentModel;
 
 @Environment(value = EnvType.CLIENT)
@@ -31,6 +33,8 @@ public class AttachmentsFeatureRenderer extends FeatureRenderer<CatEntity, CatEn
 	GunAttachmentModel gunAttachmentModel;
 	SlimeAttachmentModel slimeAttachmentModel;
 	BombAttachmentModel bombAttachmentModel;
+	LaserAttachmentModel laserAttachmentModel;
+	
 	public static Identifier ATTACHER_LAYER_ID = new Identifier(WeaponizedCats.MOD_ID,"attacher_model_layer");
 	public static EntityModelLayer attacher_layer = new EntityModelLayer(ATTACHER_LAYER_ID,"attacher");
 	public static Identifier Attacher_Texture = new Identifier(WeaponizedCats.MOD_ID,"textures/entity/attacher_model_texture.png");
@@ -51,6 +55,10 @@ public class AttachmentsFeatureRenderer extends FeatureRenderer<CatEntity, CatEn
 	public static EntityModelLayer bomb_attachment_layer = new EntityModelLayer(BOMB_ATTACHMENT_LAYER_ID,"bomb_attachment");
 	public static Identifier Bomb_Attachment_Texture = new Identifier(WeaponizedCats.MOD_ID,"textures/entity/bomb_attachment_model_texture.png");
 	
+	public static Identifier LASER_ATTACHMENT_LAYER_ID = new Identifier(WeaponizedCats.MOD_ID,"laser_attachment_model_layer");
+	public static EntityModelLayer laser_attachment_layer = new EntityModelLayer(LASER_ATTACHMENT_LAYER_ID,"laser_attachment");
+	public static Identifier Laser_Attachment_Texture = new Identifier(WeaponizedCats.MOD_ID,"textures/entity/laser_attachment_model_texture.png");
+	
 	public AttachmentsFeatureRenderer(FeatureRendererContext<CatEntity, CatEntityModel<CatEntity>> livingEntityRenderer,
 			EntityModelLoader modelLoader) {
 		super(livingEntityRenderer);
@@ -59,6 +67,8 @@ public class AttachmentsFeatureRenderer extends FeatureRenderer<CatEntity, CatEn
 		this.gunAttachmentModel = new GunAttachmentModel(modelLoader.getModelPart(gun_attachment_layer));
 		this.slimeAttachmentModel = new SlimeAttachmentModel(modelLoader.getModelPart(slime_attachment_layer));
 		this.bombAttachmentModel = new BombAttachmentModel(modelLoader.getModelPart(bomb_attachment_layer));
+		this.laserAttachmentModel = new LaserAttachmentModel(modelLoader.getModelPart(laser_attachment_layer));
+		
 	}
 
 	@Override
@@ -90,6 +100,11 @@ public class AttachmentsFeatureRenderer extends FeatureRenderer<CatEntity, CatEn
 			if(attachmentItem instanceof BombAttachment) {
 				
 				AttachmentsFeatureRenderer.render(this.getContextModel(), this.bombAttachmentModel, Bomb_Attachment_Texture, matrices, vertexConsumers, light, entity, limbAngle, limbDistance, animationProgress, headYaw, headPitch, tickDelta, 1.0f, 1.0f, 1.0f);
+				
+			}
+			if(attachmentItem instanceof LaserAttachment) {
+				
+				AttachmentsFeatureRenderer.render(this.getContextModel(), this.laserAttachmentModel, Laser_Attachment_Texture, matrices, vertexConsumers, light, entity, limbAngle, limbDistance, animationProgress, headYaw, headPitch, tickDelta, 1.0f, 1.0f, 1.0f);
 				
 			}
 			
