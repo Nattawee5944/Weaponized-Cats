@@ -20,11 +20,13 @@ import weapon.cats.main.Items.Attachments.BombAttachment;
 import weapon.cats.main.Items.Attachments.GunAttachment;
 import weapon.cats.main.Items.Attachments.LaserAttachment;
 import weapon.cats.main.Items.Attachments.SlimeAttachment;
+import weapon.cats.main.Items.Attachments.TeslaCoilAttachment;
 import weapon.cats.main.client.Models.AttacherModel;
 import weapon.cats.main.client.Models.BombAttachmentModel;
 import weapon.cats.main.client.Models.GunAttachmentModel;
 import weapon.cats.main.client.Models.LaserAttachmentModel;
 import weapon.cats.main.client.Models.SlimeAttachmentModel;
+import weapon.cats.main.client.Models.TeslaCoilAttachmentModel;
 
 @Environment(value = EnvType.CLIENT)
 public class AttachmentsFeatureRenderer extends FeatureRenderer<CatEntity, CatEntityModel<CatEntity>>{
@@ -34,6 +36,7 @@ public class AttachmentsFeatureRenderer extends FeatureRenderer<CatEntity, CatEn
 	SlimeAttachmentModel slimeAttachmentModel;
 	BombAttachmentModel bombAttachmentModel;
 	LaserAttachmentModel laserAttachmentModel;
+	TeslaCoilAttachmentModel teslaCoilAttachmentModel;
 	
 	public static Identifier ATTACHER_LAYER_ID = new Identifier(WeaponizedCats.MOD_ID,"attacher_model_layer");
 	public static EntityModelLayer attacher_layer = new EntityModelLayer(ATTACHER_LAYER_ID,"attacher");
@@ -59,6 +62,11 @@ public class AttachmentsFeatureRenderer extends FeatureRenderer<CatEntity, CatEn
 	public static EntityModelLayer laser_attachment_layer = new EntityModelLayer(LASER_ATTACHMENT_LAYER_ID,"laser_attachment");
 	public static Identifier Laser_Attachment_Texture = new Identifier(WeaponizedCats.MOD_ID,"textures/entity/laser_attachment_model_texture.png");
 	
+	public static Identifier TESLA_COIL_ATTACHMENT_LAYER_ID = new Identifier(WeaponizedCats.MOD_ID,"tesla_coil_attachment_model_layer");
+	public static EntityModelLayer tesla_coil_attachment_layer = new EntityModelLayer(TESLA_COIL_ATTACHMENT_LAYER_ID,"tesla_coil_attachment");
+	public static Identifier Tesla_Coil_Attachment_Texture = new Identifier(WeaponizedCats.MOD_ID,"textures/entity/tesla_coil_attachment_model_texture.png");
+	
+	
 	public AttachmentsFeatureRenderer(FeatureRendererContext<CatEntity, CatEntityModel<CatEntity>> livingEntityRenderer,
 			EntityModelLoader modelLoader) {
 		super(livingEntityRenderer);
@@ -68,6 +76,7 @@ public class AttachmentsFeatureRenderer extends FeatureRenderer<CatEntity, CatEn
 		this.slimeAttachmentModel = new SlimeAttachmentModel(modelLoader.getModelPart(slime_attachment_layer));
 		this.bombAttachmentModel = new BombAttachmentModel(modelLoader.getModelPart(bomb_attachment_layer));
 		this.laserAttachmentModel = new LaserAttachmentModel(modelLoader.getModelPart(laser_attachment_layer));
+		this.teslaCoilAttachmentModel = new TeslaCoilAttachmentModel(modelLoader.getModelPart(tesla_coil_attachment_layer));
 		
 	}
 
@@ -105,6 +114,11 @@ public class AttachmentsFeatureRenderer extends FeatureRenderer<CatEntity, CatEn
 			if(attachmentItem instanceof LaserAttachment) {
 				
 				AttachmentsFeatureRenderer.render(this.getContextModel(), this.laserAttachmentModel, Laser_Attachment_Texture, matrices, vertexConsumers, light, entity, limbAngle, limbDistance, animationProgress, headYaw, headPitch, tickDelta, 1.0f, 1.0f, 1.0f);
+				
+			}
+			if(attachmentItem instanceof TeslaCoilAttachment) {
+				
+				AttachmentsFeatureRenderer.render(this.getContextModel(), this.teslaCoilAttachmentModel, Tesla_Coil_Attachment_Texture, matrices, vertexConsumers, light, entity, limbAngle, limbDistance, animationProgress, headYaw, headPitch, tickDelta, 1.0f, 1.0f, 1.0f);
 				
 			}
 			

@@ -8,5 +8,15 @@
 		"sounds":[
 			"weaponized-cat:bomb_plop"
 		]
+	},
+	"laser_charge":{
+		"sounds":[
+			"weaponized-cat:laser_charge"
+		]
+	},
+	"electric_shock":{
+		"sounds":[
+			"weaponized-cat:electric_shock"
+		]
 	}
 }

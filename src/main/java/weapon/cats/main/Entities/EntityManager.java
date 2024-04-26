@@ -38,4 +38,10 @@ public class EntityManager {
 			new Identifier(WeaponizedCats.MOD_ID,"laser_explosion"),
 			FabricEntityTypeBuilder.create(SpawnGroup.MISC, LaserExplosion::new).dimensions(EntityDimensions.changing(10f, 10f)).build()
 		);
+	
+	public static EntityType<ElectricNode> ELECTRIC_NODE = Registry.register(
+			Registries.ENTITY_TYPE,
+			new Identifier(WeaponizedCats.MOD_ID,"electric_node"),
+			FabricEntityTypeBuilder.create(SpawnGroup.MISC, ElectricNode::new).dimensions(EntityDimensions.changing(1f, 1f)).build()
+		);
 }

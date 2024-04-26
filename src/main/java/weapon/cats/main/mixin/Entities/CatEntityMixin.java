@@ -21,6 +21,7 @@ import weapon.cats.main.Entities.ai.GunAttachmentAttackGoal;
 import weapon.cats.main.Entities.ai.LaserAttachmentAttackGoal;
 import weapon.cats.main.Entities.ai.LookAtLaserGoal;
 import weapon.cats.main.Entities.ai.SlimeAttachmentAttackGoal;
+import weapon.cats.main.Entities.ai.TeslaCoilAttachmentAttackGoal;
 import weapon.cats.main.Items.ItemManager;
 import weapon.cats.main.Items.Attachments.Attachment;
 
@@ -36,6 +37,7 @@ public class CatEntityMixin{
 		((MobAccessorMixin)((CatEntity)(Object)this)).getGoalSelector().add(5, new SlimeAttachmentAttackGoal((CatEntity)(Object)this, 1.0, 0, 20));
 		((MobAccessorMixin)((CatEntity)(Object)this)).getGoalSelector().add(5, new BombAttachmentAttackGoal((CatEntity)(Object)this, 1.0, 0, 30));
 		((MobAccessorMixin)((CatEntity)(Object)this)).getGoalSelector().add(5, new LaserAttachmentAttackGoal((CatEntity)(Object)this));
+		((MobAccessorMixin)((CatEntity)(Object)this)).getGoalSelector().add(5, new TeslaCoilAttachmentAttackGoal((CatEntity)(Object)this));
 		
 		((MobAccessorMixin)((CatEntity)(Object)this)).getTargetSelector().add(1, new TrackOwnerAttackerGoal(((CatEntity)(Object)this)));
 		((MobAccessorMixin)((CatEntity)(Object)this)).getTargetSelector().add(2, new AttackWithOwnerGoal(((CatEntity)(Object)this)));
@@ -91,7 +93,7 @@ public class CatEntityMixin{
         			ci.setReturnValue(ActionResult.FAIL);
         			
         		}
-        		
+        		ci.setReturnValue(ActionResult.SUCCESS);
         	}
         }
 	}

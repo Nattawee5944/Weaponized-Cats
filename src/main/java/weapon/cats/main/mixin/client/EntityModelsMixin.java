@@ -18,6 +18,7 @@ import weapon.cats.main.client.Models.BombAttachmentModel;
 import weapon.cats.main.client.Models.GunAttachmentModel;
 import weapon.cats.main.client.Models.LaserAttachmentModel;
 import weapon.cats.main.client.Models.SlimeAttachmentModel;
+import weapon.cats.main.client.Models.TeslaCoilAttachmentModel;
 import weapon.cats.main.client.Renderers.AttachmentsFeatureRenderer;
 
 @Environment(EnvType.CLIENT)
@@ -32,7 +33,8 @@ public class EntityModelsMixin {
 		builder.put(AttachmentsFeatureRenderer.slime_attachment_layer, SlimeAttachmentModel.getTexturedModelData());
 		builder.put(AttachmentsFeatureRenderer.bomb_attachment_layer, BombAttachmentModel.getTexturedModelData());
 		builder.put(AttachmentsFeatureRenderer.laser_attachment_layer, LaserAttachmentModel.getTexturedModelData());
-		//TODO: make models
+		builder.put(AttachmentsFeatureRenderer.tesla_coil_attachment_layer, TeslaCoilAttachmentModel.getTexturedModelData());
+		
 		//builder.put(AttachmentsFeatureRenderer.attachment_layer, AttachmentModel.getTexturedModelData());
 		
 		cir.setReturnValue(builder.build());

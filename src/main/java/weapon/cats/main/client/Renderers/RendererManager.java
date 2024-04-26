@@ -46,7 +46,12 @@ public class RendererManager {
 					return new LaserExplosionRenderer(context);
 				}
 			);
-		
+		EntityRendererRegistry.register(
+				EntityManager.ELECTRIC_NODE,
+				context->{
+					return new ElectricNodeRenderer(context);
+				}
+			);
 		LivingEntityFeatureRendererRegistrationCallback.EVENT.register((livingEntityType, livingEntityRenderer, registrationHelper, context)->
 		{
 			if(livingEntityType.equals(EntityType.CAT)) {

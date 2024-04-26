@@ -13,6 +13,7 @@ import net.minecraft.network.packet.s2c.play.ParticleS2CPacket;
 import net.minecraft.particle.DustParticleEffect;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.util.math.Vec3d;
+import weapon.cats.main.SoundManager;
 import weapon.cats.main.Items.ItemManager;
 import weapon.cats.main.Items.Attachments.Attachment;
 import weapon.cats.main.Items.Attachments.LaserAttachment;
@@ -82,7 +83,7 @@ public class LaserAttachmentAttackGoal extends Goal {
 		if(mob.getEquippedStack(EquipmentSlot.CHEST).isOf(ItemManager.ATTACHER)) {
 				
 			ItemStack attachmentStack = Attachment.getAttachment(mob.getEquippedStack(EquipmentSlot.CHEST));
-				if(attachmentStack != null && attachmentStack.isOf(ItemManager.LASER_ATTACHMENT)) {
+			if(attachmentStack != null && attachmentStack.isOf(ItemManager.LASER_ATTACHMENT)) {
 				
 				LivingEntity livingEntity = this.mob.getTarget();
 				if (livingEntity == null) {
@@ -100,6 +101,7 @@ public class LaserAttachmentAttackGoal extends Goal {
 				 		outOfSight = 0;
 				 	}
 				}
+				mob.playSound(SoundManager.Laser_Charge_Sound_Event, 1.0f+(50+beamTicks)/50.0f, 1 + (50+beamTicks)/50.0f);
 				Vec3d origin = mob.getEyePos().add(0, 0.5, 0);
 				Vec3d vec3d = livingEntity.getEyePos().subtract(origin);
 				Vec3d direction = vec3d.normalize().multiply(0.2);
@@ -114,7 +116,7 @@ public class LaserAttachmentAttackGoal extends Goal {
 				 	mob.getWorld().getServer().getPlayerManager().sendToAll(packet);
 				 	
 				}
-				 
+				
 				if(++beamTicks == 0) {
 				
 					LaserAttachment.CastBeam(mob, livingEntity);
