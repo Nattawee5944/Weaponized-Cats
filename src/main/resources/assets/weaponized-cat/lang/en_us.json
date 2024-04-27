@@ -6,5 +6,11 @@
 	"item.weaponized-cat.slime_attachment": "Slime Attachment",
 	"item.weaponized-cat.bomb_attachment": "Bomb Attachment",
 	"item.weaponized-cat.laser_attachment": "Laser Attachment",
-	"item.weaponized-cat.tesla_coil_attachment": "Tesla Coil Attachment"
+	"item.weaponized-cat.tesla_coil_attachment": "Tesla Coil Attachment",
+	
+	"subtitles.weaponized-cat.gunshot":"Gunshot",
+	"subtitles.weaponized-cat.bomb_plop":"Bomb Plops",
+	"subtitles.weaponized-cat.laser_charge":"Laser Charges",
+	"subtitles.weaponized-cat.electric_shock":"Electric Shock"
+	
 }

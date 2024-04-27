@@ -118,6 +118,7 @@ public class ElectricNode extends Entity implements Ownable{
 		
 		for(LivingEntity e : chain) {
 			e.damage(this.getDamageSources().lightningBolt(), 5);
+			e.timeUntilRegen--;
 		}
 		
 		

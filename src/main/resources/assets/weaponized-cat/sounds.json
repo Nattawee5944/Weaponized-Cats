@@ -1,20 +1,24 @@
 {
 	"gunshot":{
+		"subtitle": "subtitles.weaponized-cat.gunshot",
 		"sounds":[
 			"weaponized-cat:gunshot"
 		]
 	},
 	"bomb_plop":{
+		"subtitle": "subtitles.weaponized-cat.bomb_plop",
 		"sounds":[
 			"weaponized-cat:bomb_plop"
 		]
 	},
 	"laser_charge":{
+		"subtitle": "subtitles.weaponized-cat.laser_charge",
 		"sounds":[
 			"weaponized-cat:laser_charge"
 		]
 	},
 	"electric_shock":{
+		"subtitle": "subtitles.weaponized-cat.electric_shock",
 		"sounds":[
 			"weaponized-cat:electric_shock"
 		]
