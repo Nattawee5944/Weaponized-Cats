@@ -97,21 +97,22 @@ public class CatEntityMixin{
         		}
         		ci.setReturnValue(ActionResult.SUCCESS);
         	}
-        	if(itemStack.isEmpty() && player.isSneaking()) {
-        		
-        		cat.playSoundIfNotSilent(SoundEvents.ENTITY_CAT_STRAY_AMBIENT);
-        		
-        		for (int i = 0; i < 5; ++i) {
-                    double d = cat.getRandom().nextGaussian() * 0.02;
-                    double e = cat.getRandom().nextGaussian() * 0.02;
-                    double f = cat.getRandom().nextGaussian() * 0.02;
-                    cat.getWorld().addParticle(ParticleTypes.HEART, cat.getParticleX(1.0), cat.getRandomBodyY() + 1.0, cat.getParticleZ(1.0), d, e, f);
-                }
-        		
-        		ci.setReturnValue(ActionResult.SUCCESS);
-        		
-        	}
+        	
         }
+        if(itemStack.isEmpty() && player.isSneaking()) {
+    		
+    		cat.playSoundIfNotSilent(SoundEvents.ENTITY_CAT_STRAY_AMBIENT);
+    		
+    		for (int i = 0; i < 5; ++i) {
+                double d = cat.getRandom().nextGaussian() * 0.02;
+                double e = cat.getRandom().nextGaussian() * 0.02;
+                double f = cat.getRandom().nextGaussian() * 0.02;
+                cat.getWorld().addParticle(ParticleTypes.HEART, cat.getParticleX(1.0), cat.getRandomBodyY() + 1.0, cat.getParticleZ(1.0), d, e, f);
+            }
+    		
+    		ci.setReturnValue(ActionResult.SUCCESS);
+    		
+    	}
 	}
 	
 }
